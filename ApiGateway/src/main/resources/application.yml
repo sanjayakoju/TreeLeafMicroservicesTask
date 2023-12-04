@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: API-GATEWAY
+
+## Can be configure either Java Bean or application config
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: AUTH-SERVICE
+#          uri: lb://AUTH-SERVICE
+#          predicates:
+#            - Path=/auth/**,/users/**
+#
+#        - id: BLOG-SERVICE
+#          uri: lb://BLOG-SERVICE
+#          predicates:
+#            - Path=/blogs/**
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
